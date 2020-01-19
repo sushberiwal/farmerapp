@@ -1,3 +1,5 @@
+const buyerModel= require("../models/buyerModel")
+
 module.exports.buyerDetails= function (req,res){
     res.json({data:"buyer data"})
 }

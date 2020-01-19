@@ -1,9 +1,15 @@
-module.exports.farmerDetails= function(req,res)
+
+
+const farmerModel = require("../models/farmerModel")
+module.exports.farmerDetails= async function(req,res)
 {
-    res.json({data:"details of the farmer"})
+    
+    const tempData= await farmerModel.find({})
+    res.json({tempData})
 }
 
 
-module.exports.updateDetails= function(req,res){
-    res.json({data:"updating soon"})
+
+module.exports.updateDetails=  function(req,res){
+    res.json({data:"updating details of the farmer"})
 }
