@@ -12,7 +12,7 @@ module.exports.getSignupDetails=async function(req,res){
         if(role=="Farmer"){
         const farmer = await farmerModel.create(req.body);
         //3. create Token
-        const token= await jwt.sign(JSON.stringify(farmer["_id"]),KEY);
+        const token= await jwt.sign(JSON.stringify(farmer["_id"]+" "+role),KEY);
         
         res.json({
             result:"farmer account was created"
@@ -32,7 +32,6 @@ module.exports.getSignupDetails=async function(req,res){
         res.json({result:null});
     }
 } 
-
 module.exports.getLoginDetails = async function(req, res) {
     try {
       // 1. req.body check
@@ -79,36 +78,40 @@ module.exports.getLoginDetails = async function(req, res) {
       res.json({result:null});
     }
   };
-  
 module.exports.protectRoute = async function(req, res,next) {
-    //  req.header
-  try{
-    // 1. check headers, req.header..Authorization
-    if(req.headers==false||req.headers.Authorization==false){
-      return res.json({
-        data:"Please enter token"
-      })
-    }
-    // 2. get the token 
-    const token = req.headers.Authorization.split(" ")[1];
-    if(token){
-     const ans= await jwt.verify(token,KEY);
-     console.log(ans);
-     next();
-     }
-     else{
-        return res.json({
-          data:"Token has been changed"
-        })
-      }
-    //  req.id= ans["_id"];
-  
-    }
-  
-    catch(err){
-      console.log(err);
-  res.json({
-    err
-  })
-    }
+// console.log(req.cookie);
+const token = req.cookies
+? req.cookies.jwt
+: null || req.headers.authorization
+? req.headers.authorization.split(" ")[1]
+: null;
+
+console.log(token);
+try {
+  if (token) {
+    const ans = await jwt.verify(`${token}`, secret);
+    console.log(ans);
+    id,type
+  const model=type=="buyer"?buyerModel:farmerModel;
+  if (ans) {
+    const user = await userModel.findOne({ _id: ans.id });
+    req.role = user.role;
+    req.user = user;
+    next();
+  } else {
+    return res.status(401).json({
+      data: "Something went wrong please login again"
+    });
+  }
+} else {
+  return res.status(401).json({
+    data: "User not logged in"
+  });
+}
+} catch (err) {
+res.json({
+  data: err
+});
+}
+
   };

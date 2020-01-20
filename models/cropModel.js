@@ -31,9 +31,13 @@ const cropSchema=new mongoose.Schema({
     description:{
         type:String
     },
-    expiry_date:{
+    uploaded_date:{
         type: Date, 
         default: Date.now
+    },
+    phone:{
+        type:Number,
+        required:true
     }
 })
 

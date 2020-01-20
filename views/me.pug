@@ -1,0 +1,198 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=\, initial-scale=1.0')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css', integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Profile
+  body
+    .container
+      .row.my-2
+        .col-lg-8.order-lg-2
+          ul.nav.nav-tabs
+            li.nav-item
+              a.nav-link.active(href='./img/download.png', data-target='#profile', data-toggle='tab') Profile
+            li.nav-item
+              a.nav-link(href='', data-target='#edit', data-toggle='tab') Edit
+          .tab-content.py-4
+            #profile.tab-pane.active
+              h5.mb-3 User Profile
+              .row
+                .col-md-6
+                  h6 About
+                  p  I am a Farmer
+                  h6 Crops
+                  p  I sell variety of fresh crops.
+                .col-md-12
+                  h5.mt-2
+                    span.fa.fa-clock-o.ion-clock.float-right
+                    |  Recent Activity
+                  table.table.table-sm.table-hover.table-striped
+                    tbody
+                      tr
+                        td
+                          | Sold 5kg rice at 
+                          strong INR 60/Kg
+                      tr
+                        td
+                          | Sold 25Kg wheat at 
+                          strong INR 20/Kg
+                      tr
+                        td
+                          | Sold 2Kg Tomato at 
+                          strong INR 30/Kg
+                      tr
+                        td
+                          | Sold 50kg Apple at 
+                          strong INR 50/Kg
+              // /row
+            #edit.tab-pane
+              form(role='form')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label First name
+                  .col-lg-9
+                    input.form-control(type='text', value='Ram Chandra')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label Last name
+                  .col-lg-9
+                    input.form-control(type='text', value='Kumar')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label Email
+                  .col-lg-9
+                    input.form-control(type='email', value='rck123@gmail.com')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label Company
+                  .col-lg-9
+                    input.form-control(type='text', value='')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label Website
+                  .col-lg-9
+                    input.form-control(type='url', value='')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label Address
+                  .col-lg-9
+                    input.form-control(type='text', value='', placeholder='Street')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label
+                  .col-lg-6
+                    input.form-control(type='text', value='', placeholder='City')
+                  .col-lg-3
+                    input.form-control(type='text', value='', placeholder='State')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label Password
+                  .col-lg-9
+                    input.form-control(type='password', value='11111122333')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label Confirm password
+                  .col-lg-9
+                    input.form-control(type='password', value='11111122333')
+                .form-group.row
+                  label.col-lg-3.col-form-label.form-control-label
+                  .col-lg-9
+                    input.btn.btn-secondary(type='reset', value='Cancel')
+                    input.btn.btn-primary(type='button', value='Save Changes')
+        .col-lg-4.order-lg-1.text-center
+          img.mx-auto.img-fluid.img-circle.d-block(src='./img/download.png', alt='avatar')
+          h6.mt-2 Upload a different photo
+          label.custom-file
+            input#file.custom-file-input(type='file', accept='image/*', onchange='handleFiles(this.files)')
+            span.custom-file-control Choose file
+    // Footer
+    footer.page-footer.font-small.blue-grey.lighten-5
+      div(style='background-color: #21d192;')
+        .container
+          // Grid row
+          .row.py-4.d-flex.align-items-center
+            // Grid column
+            .col-md-6.col-lg-5.text-center.text-md-left.mb-4.mb-md-0
+              h6.mb-0 Get connected with us on social networks!
+            // Grid column
+            // Grid column
+            .col-md-6.col-lg-7.text-center.text-md-right
+              // Facebook
+              a.fb-ic
+                i.fab.fa-facebook-f.white-text.mr-4  
+              // Twitter
+              a.tw-ic
+                i.fab.fa-twitter.white-text.mr-4  
+              // Google +
+              a.gplus-ic
+                i.fab.fa-google-plus-g.white-text.mr-4  
+              // Linkedin
+              a.li-ic
+                i.fab.fa-linkedin-in.white-text.mr-4  
+              // Instagram
+              a.ins-ic
+                i.fab.fa-instagram.white-text  
+            // Grid column
+            // Grid row
+            // Footer Links
+            .container.text-center.text-md-left.mt-5
+              // Grid row
+              .row.mt-3.dark-grey-text
+                // Grid column
+                .col-md-3.col-lg-4.col-xl-3.mb-4
+                  // Content
+                  h6.text-uppercase.font-weight-bold CDK Global
+                  hr.teal.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
+                  p
+                    | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque maiores officia repellendus perferendis modi error. Laboriosam hic praesentium suscipit .
+                // Grid column
+                // Grid column
+                .col-md-2.col-lg-2.col-xl-2.mx-auto.mb-4
+                  // Links
+                  h6.text-uppercase.font-weight-bold Users
+                  hr.teal.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
+                  p
+                    a.dark-grey-text(href='#!') Farmer
+                  p
+                    a.dark-grey-text(href='#!') Buyer
+                  p
+                    a.dark-grey-text(href='#!') Farmer
+                  p
+                    a.dark-grey-text(href='#!') Buyer
+                // Grid column
+                // Grid column
+                .col-md-3.col-lg-2.col-xl-2.mx-auto.mb-4
+                  // Links
+                  h6.text-uppercase.font-weight-bold Useful links
+                  hr.teal.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
+                  p
+                    a.dark-grey-text(href='#!') Your Account
+                  p
+                    a.dark-grey-text(href='#!') Become an Affiliate
+                  p
+                    a.dark-grey-text(href='#!') Shipping Rates
+                  p
+                    a.dark-grey-text(href='#!') Help
+                // Grid column
+                // Grid column
+                .col-md-4.col-lg-3.col-xl-3.mx-auto.mb-md-0.mb-4
+                  // Links
+                  h6.text-uppercase.font-weight-bold Contact
+                  hr.teal.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
+                  p
+                    i.fas.fa-home.mr-3
+                    |  Navi Mumbai, M 10012, India
+                  p
+                    i.fas.fa-envelope.mr-3
+                    |  enquiries@cdkglobal.com
+                  p
+                    i.fas.fa-print.mr-3
+                    |  9876543219
+                // Grid column
+                // Grid row
+                // Footer Links
+                // Copyright
+                .footer-copyright.text-center.text-black-50.py-3
+                  | © 2020 Copyright:
+                  a.dark-grey-text(href='https://www.cdkglobal.com/us')
+                  | CDK Global
+                // Copyright
+                // Footer
+                script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js', integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n', crossorigin='anonymous')
+                script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo', crossorigin='anonymous')
+                script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6', crossorigin='anonymous')

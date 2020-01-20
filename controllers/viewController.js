@@ -5,6 +5,14 @@ module.exports.getHomePage= function(req,res){
     // res.render("home.pug",{title:"Home Page",plans});
     res.render("AgriApp.pug",{title:"AgriApp"})
 };
-module.exports.getListingPage=function(req,res){
-    res.render("listing.pug",{title:"Listing page"})
+module.exports.getListingPage= async function(req,res){
+     const crops = await cropModel.find({})
+    res.render("listing.pug",{title:"Listing page", crops})
+}
+
+
+module.exports.getProfile= async function(req,res)
+{
+res.render("profile.pug",user)
+    
 }

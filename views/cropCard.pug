@@ -1,0 +1,24 @@
+.signup-child.bg-white
+  .signup-header
+    h2 #{crop.name}
+    .signup-pricing
+      span.pricing Rs.#{crop.price}
+      | /kg
+  .signup-features
+    ul
+      li
+        i.fas.fa-check.small-icon  
+        | #{crop.description}
+      li
+        i.fas.fa-check.small-icon  
+        | From Punjab
+      li
+        i.fas.fa-check.small-icon  
+        | Quantity Available: #{crop.quantity}
+      li
+        i.fas.fa-check.small-icon  
+        | Free delivery Available
+    .signup-button
+      a.btn.btn-full(href='#') Buy Now
+    .signup-button
+      a.btn.btn-full(href='#') Contact Farmer

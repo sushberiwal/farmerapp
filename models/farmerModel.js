@@ -34,7 +34,6 @@ const farmerSchema=new mongoose.Schema({
         type:String
     },
     photo:{
-// sir se puchna h
     type:String
     },
     password:{

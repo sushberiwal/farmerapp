@@ -1,6 +1,7 @@
 const cropModel= require("../models/cropModel")
 const sendSMS= require("../utilities/SMS")
 const axios = require("axios")
+const farmerModel= require("../models/farmerModel")
 
 
 module.exports.getAllCrops = async function (req, res) {
@@ -59,7 +60,6 @@ module.exports.addCrop =async function (req, res) {
         res.json(err);
     }
 }
-
 module.exports.deleteCrop= async function(req,res){
     const {id}=req.params;
     const deletedCrop=await cropModel.findByIdandDelete(id);
@@ -77,20 +77,21 @@ var arr=response.data.messages
 var data=arr[arr.length-1]
 console.log(data);
  const number=data.number
-//  if(await farmerModel.find({phone:number-910000000000})){
-//    const message=`You are not a registered farmer.Please register first on our portal FarmerConnect`
-//     sendSMS(number,message)
-//     res.json({
-//         data:"not a registered user"
-//     })
-// }
+ if(Object.keys(await farmerModel.find({phone:number-910000000000})).length==0){
+   const message=`You are not a registered farmer.Please register first on our portal FarmerConnect`
+    sendSMS(number,message)
+   return res.json({
+        data:"not a registered user"
+    })
+}
 data=data.message
 data=data.split(" ");
 const obj={
   name:data[1],
   price:data[2],
   quantity:data[3],
-  description:data[4]
+  description:data[4],
+  phone:number-910000000000
 }
 const crop=await cropModel.create(obj)
 const message=`Your data has been saved successfully in our database`

@@ -1,3 +1,7 @@
 extend base
+block header
+  include header
 block content
-  h1 Listing page
+  .signup-parent.bg-light.container-fluid
+    for crop in crops 
+      include cropCard
