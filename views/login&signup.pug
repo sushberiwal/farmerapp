@@ -1,0 +1,79 @@
+.container.mt-5
+  .row
+    .col-1
+    .col-4
+      img(src='./img/phone.jpg', style='width:15rem;')
+    .col-6.bg-white
+      .form
+        ul.tab-group
+          li.tab.active
+            a(href='#signup') Sign Up
+          li.tab
+            a(href='#login') Log In
+        .tab-content
+          #signup
+            h3 Sign Up for Free
+            form#signupForm(action='/signup', method='post')
+              .top-row
+                .field-wrap
+                  label
+                    | First Name
+                    span.req *
+                  input#firstName(type='text', required='', autocomplete='off', name='firstName')
+                .field-wrap
+                  label
+                    | Last Name
+                    span.req *
+                  input#lastName(type='text', required='', autocomplete='off', name='lastName')
+              // Dropdown
+              .field-wrap
+                label
+                  | Register as
+                  span.req
+                input#role(list='rolesss', name='role')
+                datalist#rolesss
+                  option(value='farmer')
+                  option(value='buyer')
+              .field-wrap
+                label
+                  | Add Documents
+                  span.req
+                input#documents(type='file', autocomplete='off')
+              .field-wrap
+                label
+                  | Phone Number
+                  span.req *
+                input#phoneN(type='text', required='', autocomplete='off', name='phone')
+              .field-wrap
+                label
+                  | Email Address
+                  span.req *
+                input#email(type='email', required='', autocomplete='off', name='email')
+              .field-wrap
+                label
+                  | Address
+                  span.req *
+                input#address(type='text', required='', autocomplete='off', name='address')
+              .field-wrap
+                label
+                  | Set A Password
+                  span.req *
+                input#password(type='password', required='', autocomplete='off', name='password')
+              button.button.button-block(type='submit') Get Started
+          #login.noneDisp
+            h3 Welcome Back!
+            form#loginForm(action='/login', method='post')
+              .field-wrap
+                label
+                  | Phone Number
+                  span.req *
+                input#phoneLogin(type='text', required='', autocomplete='off', name='phone')
+              .field-wrap
+                label
+                  | Password
+                  span.req *
+                input#passwordLogin(type='password', required='', autocomplete='off', name='password')
+              button.button.button-block(type='submit') Log In
+        // tab-content
+        // /form
+    .col-1

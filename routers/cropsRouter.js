@@ -6,7 +6,7 @@ const {getAllCrops,addCrop,deleteCrop,checkInput,addCrop_sms}= require("../contr
 
 
 
-cropsRouter.route("").get(getAllCrops).post(checkInput,addCrop).delete(deleteCrop)
+cropsRouter.route("").get(getAllCrops).post(addCrop).delete(deleteCrop)
 
 cropsRouter.route("/sms").post(addCrop_sms);
 
