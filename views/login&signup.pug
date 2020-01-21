@@ -1,79 +1,41 @@
-.container.mt-5
-  .row
-    .col-1
-    .col-4
-      img(src='./img/phone.jpg', style='width:15rem;')
-    .col-6.bg-white
-      .form
-        ul.tab-group
-          li.tab.active
-            a(href='#signup') Sign Up
-          li.tab
-            a(href='#login') Log In
-        .tab-content
-          #signup
-            h3 Sign Up for Free
-            form#signupForm(action='/signup', method='post')
-              .top-row
-                .field-wrap
-                  label
-                    | First Name
-                    span.req *
-                  input#firstName(type='text', required='', autocomplete='off', name='firstName')
-                .field-wrap
-                  label
-                    | Last Name
-                    span.req *
-                  input#lastName(type='text', required='', autocomplete='off', name='lastName')
-              // Dropdown
-              .field-wrap
-                label
-                  | Register as
-                  span.req
-                input#role(list='rolesss', name='role')
-                datalist#rolesss
-                  option(value='farmer')
-                  option(value='buyer')
-              .field-wrap
-                label
-                  | Add Documents
-                  span.req
-                input#documents(type='file', autocomplete='off')
-              .field-wrap
-                label
-                  | Phone Number
-                  span.req *
-                input#phoneN(type='text', required='', autocomplete='off', name='phone')
-              .field-wrap
-                label
-                  | Email Address
-                  span.req *
-                input#email(type='email', required='', autocomplete='off', name='email')
-              .field-wrap
-                label
-                  | Address
-                  span.req *
-                input#address(type='text', required='', autocomplete='off', name='address')
-              .field-wrap
-                label
-                  | Set A Password
-                  span.req *
-                input#password(type='password', required='', autocomplete='off', name='password')
-              button.button.button-block(type='submit') Get Started
-          #login.noneDisp
-            h3 Welcome Back!
-            form#loginForm(action='/login', method='post')
-              .field-wrap
-                label
-                  | Phone Number
-                  span.req *
-                input#phoneLogin(type='text', required='', autocomplete='off', name='phone')
-              .field-wrap
-                label
-                  | Password
-                  span.req *
-                input#passwordLogin(type='password', required='', autocomplete='off', name='password')
-              button.button.button-block(type='submit') Log In
-        // tab-content
-        // /form
-    .col-1
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-4"><img src="./img/phone.jpg" style="width:15rem;" /></div>
+        <div class="col-6 bg-white">
+            <div class="form">
+                <ul class="tab-group">
+                    <li class="tab active"><a href="#signup">Sign Up</a></li>
+                    <li class="tab"><a href="#login">Log In</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="signup">
+                        <h3>Sign Up for Free</h3>
+                        <form id="signupForm" action="/signup" method="post">
+                            <div class="top-row">
+                                <div class="field-wrap"><label>First Name<span class="req">*</span></label><input id="firstName" type="text" required="" autocomplete="off" name="firstName" /></div>
+                                <div class="field-wrap"><label>Last Name<span class="req">*</span></label><input id="lastName" type="text" required="" autocomplete="off" name="lastName" /></div>
+                            </div>
+                            <!-- Dropdown-->
+                            
+                            <div class="field-wrap"><label>Register as<span class="req"></span></label><input id="role" list="rolesss" name="role" /><datalist id="rolesss"><option value="farmer"></option><option value="buyer"></option></datalist></div>
+                            <div class="field-wrap"><label>Add Documents<span class="req"></span></label><input id="documents" type="file" autocomplete="off" /></div>
+                            <div class="field-wrap"><label>Phone Number<span class="req">*</span></label><input id="phoneN" type="text" required="" autocomplete="off" name="phone" /></div>
+                            <div class="field-wrap"><label>Email Address<span class="req">*</span></label><input id="email" type="email" required="" autocomplete="off" name="email" /></div>
+                            <div class="field-wrap"><label>Address<span class="req">*</span></label><input id="address" type="text" required="" autocomplete="off" name="address" /></div>
+                            <div class="field-wrap"><label>Set A Password<span class="req">*</span></label><input id="password" type="password" required="" autocomplete="off" name="password" /></div><button class="button button-block" type="submit">Get Started</button></form>
+                    </div>
+                    <div class="noneDisp" id="login">
+                        <h3>Welcome Back!</h3>
+                        <form id="loginForm" action="/login" method="post">
+                            <div class="field-wrap"><label>Phone Number<span class="req">*</span></label><input id="phoneLogin" type="text" required="" autocomplete="off" name="phone" /></div>
+                            <div class="field-wrap"><label>Password<span class="req">*</span></label><input id="passwordLogin" type="password" required="" autocomplete="off" name="password" /></div><button class="button button-block" type="submit">Log In</button></form>
+                    </div>
+                </div>
+                <!-- tab-content-->
+                <!-- /form-->
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>

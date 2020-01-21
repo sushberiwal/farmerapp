@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    
+  body
+    link(rel='stylesheet', href='css/addcropstyle.css')
+    h2 Add Crops
+    button(onclick="document.getElementById('id01').style.display='block'", style='width:auto;') Add Crop
+    #id01.modal
+      span.close(onclick="document.getElementById('id01').style.display='none'", title='Close Modal') ×
+      form.modal-content.crop-form 
+        .container
+          h1 Add Crop
+          p Please fill in this form to add crops
+          hr
+          label(for='email')
+            b Crop Name
+          input(type='text', placeholder='Enter crop name', name='name', required='')
+          label(for='psw')
+            b Price
+          input(type='number', placeholder='Enter Price per Kg', name='price', required='')
+          label(for='psw-repeat')
+            b Quantity
+          input(type='number', placeholder='Enter Quantity in Kg', name='quantity', required='')
+          p
+            | By creating an account you agree to our 
+            a(href='#', style='color:dodgerblue') Terms & Privacy
+            | .
+          .clearfix
+            button.cancelbtn(type='button', onclick="document.getElementById('id01').style.display='none'") Cancel
+            button.signupbtn.crop-button(type='submit') Submit
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.js")        
+    script(src="js/frontend.js")
+    script.
+      // Get the modal
+      var modal = document.getElementById('id01');
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+      if (event.target == modal) {
+      modal.style.display = "none";
+      }
+      }
